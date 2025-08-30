@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>[Tu Nombre] — Portafolio</title>
+  <meta name="description" content="Portafolio de [Tu Nombre]: proyectos, habilidades y contacto." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0f1221;
+      --card: #171a2f;
+      --text: #e8ecff;
+      --muted: #a9b3d1;
+      --primary: #7c5cff;
+      --accent: #00d4ff;
+      --ring: rgba(124, 92, 255, .35);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; font-family: Inter, system-ui, Arial, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .container { max-width: 1000px; margin: 0 auto; padding: 24px; }
+    nav { position: sticky; top: 0; backdrop-filter: saturate(180%) blur(10px); background: rgba(15, 18, 33, .7); border-bottom: 1px solid #222; z-index: 10; }
+    .nav-inner { display: flex; align-items: center; justify-content: space-between; }
+    .brand { font-weight: 800; letter-spacing: .5px; }
+    .menu a { margin-left: 16px; }
+    .hero { padding: 64px 0 40px; display: grid; gap: 12px; }
+    h1 { font-size: clamp(28px, 6vw, 48px); margin: 0; }
+    .tagline { color: var(--muted); max-width: 60ch; }
+    .btns { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 8px; }
+    .btn { display: inline-block; padding: 10px 16px; border-radius: 12px; font-weight: 600; border: 1px solid transparent; }
+    .btn.primary { background: var(--primary); color: white; box-shadow: 0 10px 30px var(--ring); }
+    .btn.ghost { border-color: #2a2f4a; color: var(--text); background: transparent; }
+    section { padding: 56px 0; border-top: 1px solid #1c2038; }
+    .section-title { font-size: 22px; margin: 0 0 16px; letter-spacing: .2px; }
+    .grid { display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+    .card { background: var(--card); border: 1px solid #222742; border-radius: 16px; padding: 16px; transition: transform .15s ease, box-shadow .2s ease; }
+    .card:hover { transform: translateY(-3px); box-shadow: 0 12px 30px rgba(0,0,0,.25); }
+    .card img { width: 100%; height: 180px; object-fit: cover; border-radius: 12px; }
+    .card h3 { margin: 12px 0 8px; }
+    .chips { display: flex; gap: 8px; flex-wrap: wrap; }
+    .chip { padding: 6px 10px; border-radius: 999px; background: #0c1024; border: 1px solid #222742; font-size: 12px; color: var(--muted); }
+    footer { padding: 32px 0; color: var(--muted); text-align: center; }
+    .small { font-size: 14px; color: var(--muted); }
+    /* Tema claro opcional (pulsa el icono 🌗) */
+    :root.light { --bg:#fafafa; --card:#ffffff; --text:#0b0c12; --muted:#3c3f4f; --primary:#6b5cff; --accent:#0066ff; --ring: rgba(0,102,255,.20) }
+    .toggle { cursor: pointer; }
+  </style>
+  <script>
+    function toggleTheme(){
+      document.documentElement.classList.toggle('light');
+      localStorage.setItem('theme', document.documentElement.classList.contains('light') ? 'light':'dark');
+    }
+    (function(){
+      const saved = localStorage.getItem('theme');
+      if(saved==='light'){ document.documentElement.classList.add('light'); }
+    })();
+  </script>
+</head>
+<body>
+  <nav>
+    <div class="container nav-inner">
+      <div class="brand">[Tu Nombre]</div>
+      <div class="menu">
+        <a href="#sobre-mi">Sobre mí</a>
+        <a href="#proyectos">Proyectos</a>
+        <a href="#habilidades">Habilidades</a>
+        <a href="#contacto">Contacto</a>
+        <a class="toggle" onclick="toggleTheme()" aria-label="Alternar tema">🌗</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="container hero" id="inicio">
+    <h1>Hola, soy Alejandro Adolfo Yanqui Reyes 👋</h1>
+    <p class="tagline">[Tu título/rol] — Me enfoco en [área]. Aquí encontrarás una selección de mis trabajos y cómo puedo ayudarte.</p>
+    <div class="btns">
+      <a class="btn primary" href="#proyectos">Ver proyectos</a>
+      <a class="btn ghost" href="mailto:tuemail@ejemplo.com">Escríbeme</a>
+    </div>
+  </header>
+
+  <main class="container">
+    <section id="sobre-mi">
+      <h2 class="section-title">Sobre mí</h2>
+      <p>Breve bio: cuenta quién eres, qué te motiva y tu propuesta de valor. Menciona resultados o métricas si puedes (p.ej., "reduje 25% el tiempo de carga").</p>
+    </section>
+
+    <section id="proyectos">
+      <h2 class="section-title">Proyectos destacados</h2>
+      <div class="grid">
+        <article class="card">
+          <img src="https://picsum.photos/seed/proy1/800/600" alt="Captura del Proyecto 1" loading="lazy">
+          <h3>Proyecto 1 — [Tecnología]</h3>
+          <p>Descripción breve del problema, tu solución y el impacto.</p>
+          <div class="chips">
+            <span class="chip">HTML</span><span class="chip">CSS</span><span class="chip">JS</span>
+          </div>
+          <p class="small"><a href="#" target="_blank" rel="noopener">Demo</a> • <a href="#" target="_blank" rel="noopener">Código</a></p>
+        </article>
+
+        <article class="card">
+          <img src="https://picsum.photos/seed/proy2/800/600" alt="Captura del Proyecto 2" loading="lazy">
+          <h3>Proyecto 2 — [Tecnología]</h3>
+          <p>Qué hiciste, cómo lo hiciste y qué se logró.</p>
+          <div class="chips">
+            <span class="chip">Python</span><span class="chip">Flask</span>
+          </div>
+          <p class="small"><a href="#" target="_blank" rel="noopener">Demo</a> • <a href="#" target="_blank" rel="noopener">Código</a></p>
+        </article>
+
+        <article class="card">
+          <img src="https://picsum.photos/seed/proy3/800/600" alt="Captura del Proyecto 3" loading="lazy">
+          <h3>Proyecto 3 — [Tecnología]</h3>
+          <p>En una línea: objetivo, acción y resultado.</p>
+          <div class="chips">
+            <span class="chip">React</span><span class="chip">API</span>
+          </div>
+          <p class="small"><a href="#" target="_blank" rel="noopener">Demo</a> • <a href="#" target="_blank" rel="noopener">Código</a></p>
+        </article>
+      </div>
+    </section>
+
+    <section id="habilidades">
+      <h2 class="section-title">Habilidades</h2>
+      <div class="chips">
+        <span class="chip">JavaScript</span>
+        <span class="chip">Python</span>
+        <span class="chip">SQL</span>
+        <span class="chip">Git</span>
+        <span class="chip">Figma</span>
+        <!-- Agrega más -->
+      </div>
+    </section>
+
+    <section id="contacto">
+      <h2 class="section-title">Contacto</h2>
+      <p class="small">📧 <a href="mailto:tuemail@ejemplo.com">tuemail@ejemplo.com</a> &nbsp; | &nbsp; 💼 <a href="#" target="_blank" rel="noopener">LinkedIn</a> &nbsp; | &nbsp; 🐙 <a href="#" target="_blank" rel="noopener">GitHub</a></p>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p class="small">© <span id="year"></span> [Tu Nombre]. Hecho con ♥.</p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
